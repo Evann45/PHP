@@ -1,0 +1,56 @@
+body{
+    background-color: teal;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    margin-top: 10%;
+}
+
+label{
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    font-weight: 900;
+    line-height: 1.4;
+    font-family: 'Inter', sans-serif;
+}
+
+.text {
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+
+#form{
+
+    width: 30%;
+   
+    height: auto;
+   
+    position: absolute;
+   
+    left: 50%;
+   
+    top: 40%;
+   
+    transform: translate(-50%, -50%);
+   
+    -webkit-transform: translate(-50%, -50%);
+   
+    }
+
+#button{
+    border-radius: 10px 10px 5px 5px;
+    border: none;
+    height: 30px;
+    background-color: white;
+    width: 200px;
+    margin-left: 33%;
+    margin-top: 2%;
+}

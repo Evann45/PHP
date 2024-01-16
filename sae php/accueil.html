@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="accueil.css">
+    <title>Quizz php</title>
+</head>
+<body>
+    <h1>Bonjour à vous et bienvenue sur mon quizz</h1>
+    <div id = "form">
+    <form method="POST" action="questionnaires.php">
+        <label id = "pseudo" for ="pseudo">Pseudo</label>
+        <input class = "text" type="text" name="pseudo">
+        
+        <label id="mdp" for ="mdp">Mot de passe</label>
+        <input class = "mdp" type="password" name="mdp">
+
+        <input id="button" type="submit" value="Démarrer le quizz">
+    </form>
+    </div>
+</body>
+</html>
