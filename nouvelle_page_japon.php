@@ -1,11 +1,17 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Quiz sur le Japon</title>
+    <link rel="stylesheet" type="text/css" href="css/quiz.css">
+    <title>Quiz Japon</title>
 </head>
 <body>
     <h1>Quiz sur le Japon</h1>
+    
     <form action="process_japon.php" method="post">
         <?php
         date_default_timezone_set('Europe/Paris');
@@ -21,6 +27,8 @@
                 echo '<input type="radio" name="question_' . $question['id'] . '" value="1"> Oui ';
                 echo '<input type="radio" name="question_' . $question['id'] . '" value="0"> Non <br>';
             }
+
+            echo '<p>Score : ' . $_SESSION['score'] . '</p>';
 
             // Fermeture de la connexion à la base de données
             $file_db = null;

@@ -1,11 +1,16 @@
 <?php
-date_default_timezone_set('Europe/Paris');
+// Démarrer la session
+session_start();
+
+// Initialiser le score si ce n'est pas déjà fait
+if (!isset($_SESSION['score'])) {
+    $_SESSION['score'] = 0;
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
         $file_db = new PDO('sqlite:contacts.sqlite3');
         $file_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-
 
         // Enregistrement du nom, prénom et date dans la table participants
         $nom = $_POST['nom'];
@@ -23,6 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Récupération de l'id du participant que nous venons d'insérer
         $participant_id = $file_db->lastInsertId();
+
+        // Enregistrement du score dans la session
+        $_SESSION['score'] = 0;  // Réinitialise le score à 0
+        $_SESSION['participant_id'] = $participant_id;  // Stocke l'ID du participant dans la session
 
         // Insertion d'une nouvelle entrée dans la table scores avec l'id du participant
         $insertScore = "INSERT INTO scores (participant_id, score, time) VALUES (:participant_id, 0, :time)";

@@ -1,8 +1,18 @@
+<?php
+// Démarrer la session
+session_start();
+
+// Initialiser le score si ce n'est pas déjà fait
+if (!isset($_SESSION['score'])) {
+    $_SESSION['score'] = 0;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/quiz.css">
     <title>Quiz sur la France</title>
 </head>
 <body>
@@ -14,8 +24,7 @@
             $file_db = new PDO('sqlite:contacts.sqlite3');
             $file_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
-
-            // Récupération des questions sur le Japon de la base de données
+            // Récupération des questions sur la France de la base de données
             $questions = $file_db->query("SELECT * FROM questions WHERE id BETWEEN 1 AND 3")->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($questions as $question) {
@@ -24,6 +33,9 @@
                 echo '<input type="radio" name="question_' . $question['id'] . '" value="0"> Non <br>';
             }
 
+            // Affichage du score
+            echo '<p>Score : ' . $_SESSION['score'] . '</p>';
+
             // Fermeture de la connexion à la base de données
             $file_db = null;
 
@@ -31,7 +43,7 @@
             echo $ex->getMessage();
         }
         ?>
-        <input type="submit" value="Soumettre">
+        <input type="submit" name="submit" value="Soumettre">
     </form>
 </body>
 </html>

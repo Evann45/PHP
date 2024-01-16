@@ -1,3 +1,11 @@
+<?php
+// Démarrer la session
+session_start();
+
+// Réinitialiser la variable de session du score
+$_SESSION['score'] = 0;
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
