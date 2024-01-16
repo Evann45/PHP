@@ -39,7 +39,10 @@ try {
     $questions = array(
         array('question' => 'La capitale de la France est-elle Paris?'),
         array('question' => 'La Tour Eiffel est-elle située à Londres?'),
-        // Ajoutez autant de questions que nécessaire
+        array('question' => 'Kevin est le président de la France?'),
+        array('question' => 'Tokyo est la capitale du Japon?'),
+        array('question' => 'le ramens est un plat japonais?'),
+        array('question' => 'Le Japon est une île?'),
     );
 
     // Insertion des données dans la table questions
@@ -56,9 +59,17 @@ try {
     $answers = array(
         array('question_id' => 1, 'answer' => 'Oui', 'is_correct' => 1),
         array('question_id' => 1, 'answer' => 'Non', 'is_correct' => 0),
-        array('question_id' => 2, 'answer' => 'Oui', 'is_correct' => 1),
-        array('question_id' => 2, 'answer' => 'Non', 'is_correct' => 0),
-        // Ajoutez autant de réponses que nécessaire
+        array('question_id' => 2, 'answer' => 'Oui', 'is_correct' => 0),
+        array('question_id' => 2, 'answer' => 'Non', 'is_correct' => 1),
+        array('question_id' => 3, 'answer' => 'Oui', 'is_correct' => 0),
+        array('question_id' => 3, 'answer' => 'Non', 'is_correct' => 1),
+        // Question sur le Japon
+        array('question_id' => 4, 'answer' => 'Oui', 'is_correct' => 1),
+        array('question_id' => 4, 'answer' => 'Non', 'is_correct' => 0),
+        array('question_id' => 5, 'answer' => 'Oui', 'is_correct' => 1),
+        array('question_id' => 5, 'answer' => 'Non', 'is_correct' => 0),
+        array('question_id' => 6, 'answer' => 'Oui', 'is_correct' => 1),
+        array('question_id' => 6, 'answer' => 'Non', 'is_correct' => 0),
     );
 
     // Insertion des données dans la table answers
