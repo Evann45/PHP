@@ -25,7 +25,7 @@ try {
     }
 
     // Enregistrement du score dans la base de données
-    $file_db->exec("UPDATE INTO scores (score, time) VALUES ($score, " . time() . ")");
+    $file_db->exec("UPDATE scores SET score = score + $score, time = " . time());
 
     // Redirection vers une nouvelle page de quiz
     header("Location: nouvelle_page_japon.php");

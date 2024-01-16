@@ -14,15 +14,18 @@ try {
         $answers[$row['question_id']] = $row['is_correct'];
     }
 
+    // Récupération des réponses de l'utilisateur
     foreach ($_POST as $key => $value) {
-        if (strpos($key, 'question_') !== false) {
+        // On ne s'intéresse qu'aux réponses aux questions
+        if (strpos($key, 'question_') !== false) { 
+            // On récupère l'identifiant de la question avec une requete
             $questionId = str_replace('question_', '', $key);
+            // On compare la réponse de l'utilisateur à la réponse attendue
             if (isset($answers[$questionId]) && $answers[$questionId] == $value) {
                 $score++;
             }
         }
     }
-
     // Enregistrement du score dans la base de données
     $scores = $file_db->query("SELECT score FROM scores")->fetchAll(PDO::FETCH_ASSOC);
     $file_db->exec("UPDATE INTO scores (score, time) VALUES ($score+$scores, " . time() . ")");
