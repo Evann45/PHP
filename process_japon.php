@@ -20,7 +20,8 @@ try {
     foreach ($_POST as $key => $value) {
         if (strpos($key, 'question_') !== false) {
             $questionId = str_replace('question_', '', $key);
-            if (isset($answers[$questionId]) && $answers[$questionId] == $value) {
+            if (isset($answers[$questionId]) && $answers[$questionId] == $value) {}
+            else {
                 $score++;
             }
         }
@@ -46,5 +47,4 @@ try {
 } catch (PDOException $ex) {
     echo $ex->getMessage();
 }
-// ...
 ?>

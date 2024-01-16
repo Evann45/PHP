@@ -33,9 +33,6 @@ if (!isset($_SESSION['score'])) {
                 echo '<input type="radio" name="question_' . $question['id'] . '" value="0"> Non <br>';
             }
 
-            // Affichage du score
-            echo '<p>Score : ' . $_SESSION['score'] . '</p>';
-
             // Fermeture de la connexion à la base de données
             $file_db = null;
 

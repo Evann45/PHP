@@ -28,8 +28,6 @@ session_start();
                 echo '<input type="radio" name="question_' . $question['id'] . '" value="0"> Non <br>';
             }
 
-            echo '<p>Score : ' . $_SESSION['score'] . '</p>';
-
             // Fermeture de la connexion à la base de données
             $file_db = null;
 
