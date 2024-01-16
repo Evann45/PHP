@@ -9,7 +9,6 @@
     <form action="process_japon.php" method="post">
         <?php
         date_default_timezone_set('Europe/Paris');
-        $score = 0;
         try {
             $file_db = new PDO('sqlite:contacts.sqlite3');
             $file_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
@@ -21,18 +20,6 @@
                 echo '<p>' . $question['question'] . '</p>';
                 echo '<input type="radio" name="question_' . $question['id'] . '" value="1"> Oui ';
                 echo '<input type="radio" name="question_' . $question['id'] . '" value="0"> Non <br>';
-            }
-
-            foreach ($answers as $a) {
-                $question_id = $a['question_id'];
-                $answer = $a['answer'];
-                $is_correct = $a['is_correct'];
-                $stmtAnswer->execute();
-
-                // Augmentation du score si la réponse est correcte
-                if ($is_correct == 1) {
-                    $score++;
-                }
             }
 
             // Fermeture de la connexion à la base de données
