@@ -6,12 +6,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $file_db = new PDO('sqlite:contacts.sqlite3');
         $file_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
-        // Création de la table participants si elle n'existe pas
-        $file_db->exec("CREATE TABLE IF NOT EXISTS participants (
-            id INTEGER PRIMARY KEY,
-            nom TEXT,
-            prenom TEXT,
-            time INTEGER)");
 
         // Enregistrement du nom, prénom et date dans la table participants
         $nom = $_POST['nom'];
@@ -26,6 +20,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmtParticipant->bindParam(':time', $time);
 
         $stmtParticipant->execute();
+
+        // Récupération de l'id du participant que nous venons d'insérer
+        $participant_id = $file_db->lastInsertId();
+
+        // Insertion d'une nouvelle entrée dans la table scores avec l'id du participant
+        $insertScore = "INSERT INTO scores (participant_id, score, time) VALUES (:participant_id, 0, :time)";
+        $stmtScore = $file_db->prepare($insertScore);
+
+        $stmtScore->bindParam(':participant_id', $participant_id);
+        $stmtScore->bindParam(':time', $time);
+
+        $stmtScore->execute();
 
         // Redirection vers la page du quiz
         header("Location: index.php");

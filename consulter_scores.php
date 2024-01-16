@@ -20,7 +20,8 @@
         if ($scores) {
             echo '<ul>';
             foreach ($scores as $score) {
-                echo '<li>Score : ' . $score['score'] . ' points - Date du quiz : ' . date('Y-m-d H:i:s', $score['time']) . '</li>';
+                $person = $file_db->query("SELECT * FROM participants NATURAL JOIN scores WHERE id = ". $score['participant_id'])->fetch(PDO::FETCH_ASSOC);
+                echo '<li>'. $person['nom'] .' ' . $person['prenom'] .' - Score : ' . $score['score'] . ' points - Date du quiz : ' . date('Y-m-d H:i:s', $score['time']) . '</li>';
             }
             echo '</ul>';
         } else {

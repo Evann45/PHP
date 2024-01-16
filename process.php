@@ -5,11 +5,6 @@ try {
     $file_db = new PDO('sqlite:contacts.sqlite3');
     $file_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
-    // Création de la table scores si elle n'existe pas
-    $file_db->exec("CREATE TABLE IF NOT EXISTS scores (
-        id INTEGER PRIMARY KEY,
-        score INTEGER,
-        time INTEGER)");
 
     $answers = array();
     $score = 0;
@@ -30,7 +25,7 @@ try {
     }
 
     // Enregistrement du score dans la base de données
-    $file_db->exec("INSERT INTO scores (score, time) VALUES ($score, " . time() . ")");
+    $file_db->exec("UPDATE INTO scores (score, time) VALUES ($score, " . time() . ")");
 
     // Redirection vers une nouvelle page de quiz
     header("Location: nouvelle_page_japon.php");
