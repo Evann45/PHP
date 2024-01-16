@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <title>Quiz sur la France</title>
 </head>
 <body>
