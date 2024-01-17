@@ -17,7 +17,7 @@ if (!isset($_SESSION['score'])) {
 </head>
 <body>
     <h1>Quiz sur la France</h1>
-    <form action="process.php" method="post">
+    <form action="process_france.php" method="post">
         <?php
         date_default_timezone_set('Europe/Paris');
         require 'database.php';

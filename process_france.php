@@ -29,7 +29,7 @@ try {
     $_SESSION['score'] = $score;
 
     // Redirection vers la prochaine page du quiz
-    header('Location: nouvelle_page_japon.php');
+    header('Location: quiz_japon.php');
     exit();
 
     // Fermeture de la connexion à la base de données

@@ -16,7 +16,7 @@ $_SESSION['score'] = 0;
 <body>
     <h1>Bienvenue au Quiz</h1>
 
-    <form action="quiz.php" method="post">
+    <form action="process_index.php" method="post">
         <label for="nom">Nom :</label>
         <input type="text" id="nom" name="nom" required><br>
 
