@@ -23,8 +23,8 @@ session_start();
 
             foreach ($questions as $question) {
                 echo '<p>' . $question['question'] . '</p>';
-                echo '<input type="radio" name="question_' . $question['id'] . '" value="1"> Oui ';
-                echo '<input type="radio" name="question_' . $question['id'] . '" value="0"> Non <br>';
+                echo '<label><input type="radio" name="question_' . $question['id'] . '" value="1"> Oui </label>';
+                echo '<label><input type="radio" name="question_' . $question['id'] . '" value="0"> Non </label><br>';
             }
 
             // Fermeture de la connexion à la base de données
