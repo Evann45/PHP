@@ -25,6 +25,13 @@ try {
         }
     }
 
+    // Enregistrement des réponses de l'utilisateur dans la session
+    foreach ($_POST as $key => $value) {
+        if (strpos($key, 'question_') !== false) {
+            $_SESSION[$key] = $value;
+        }
+    }
+
     // Enregistrement du score dans la session
     $_SESSION['score'] = $score;
 

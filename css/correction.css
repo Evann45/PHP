@@ -1,4 +1,4 @@
-/* resultat.css */
+/* correction.css */
 
 body {
     font-family: 'Arial', sans-serif;
@@ -17,9 +17,27 @@ h1 {
 
 p {
     color: #333;
-    font-size: 18px;
-    margin-bottom: 5%;
     text-align: center;
+    font-size: 125%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    margin-bottom: 2%;
+    color: #333;
+}
+
+li.correct {
+    color: #4caf50;
+}
+
+li.incorrect {
+    color: #f44336;
 }
 
 a {

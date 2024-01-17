@@ -4,7 +4,6 @@ session_start();
 date_default_timezone_set('Europe/Paris');
 require 'database.php';
 try {
-
     $answers = array();
 
     // Récupération des réponses de la base de données
@@ -19,11 +18,19 @@ try {
         if (strpos($key, 'question_') !== false) {
             $questionId = str_replace('question_', '', $key);
             if (isset($answers[$questionId]) && $answers[$questionId] == $value) {}
-            else {
+            else{
                 $score++;
             }
         }
     }
+
+    // Enregistrement des réponses de l'utilisateur dans la session
+    foreach ($_POST as $key => $value) {
+        if (strpos($key, 'question_') !== false) {
+            $_SESSION[$key] = $value;
+        }
+    }
+
 
     // Ajouter le score précédent
     $previousScore = isset($_SESSION['score']) ? $_SESSION['score'] : 0;
