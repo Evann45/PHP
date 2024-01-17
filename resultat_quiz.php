@@ -20,11 +20,9 @@
             echo '<p>Votre score est de ' . $result['score'] . ' points.</p>';
             echo '<p>Date du quiz : ' . date('Y-m-d H:i:s', $result['time']) . '</p>';
 
-            // Bouton pour consulter tous les scores
-            echo '<a href="consulter_scores.php"><button>Consulter tous les scores</button></a>';
-
             // Bouton pour voir la correction
             echo '<a href="correction.php"><button>Voir la correction</button></a>';
+
         } else {
             echo '<p>Aucun score disponible.</p>';
         }

@@ -27,9 +27,16 @@ session_start(); // Assurez-vous de démarrer la session au début du fichier
             
             // Récupération de la réponse correcte de la base de données
             $stmt = $file_db->prepare("SELECT * FROM answers WHERE question_id = :questionId");
+
             $stmt->bindParam(':questionId', $question['id'], PDO::PARAM_INT);
             $stmt->execute();
             $answer = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            $stmt2 = $file_db->prepare("SELECT * FROM answers WHERE question_id = :questionId AND is_correct = 1");
+            $stmt2->bindParam(':questionId', $question['id'], PDO::PARAM_INT);
+            $stmt2->execute();
+            $correctAnswer = $stmt2->fetch(PDO::FETCH_ASSOC);
+
 
             // Vérifie si la réponse de l'utilisateur est correcte
             $isUserAnswerCorrect = isset($_SESSION['question_' . $question['id']]) && $_SESSION['question_' . $question['id']] == $answer['is_correct'];
@@ -39,7 +46,7 @@ session_start(); // Assurez-vous de démarrer la session au début du fichier
             echo 'Votre réponse : ' . ($isUserAnswerCorrect ? 'Correcte' : 'Incorrecte');
             echo '</li>';
             echo '<li>';
-            echo 'Réponse correcte : ' . $answer['answer'];
+            echo 'Réponse correcte : ' . $correctAnswer['answer'];
             echo '</li>';
             echo '</ul>';
         }
