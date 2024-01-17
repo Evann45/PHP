@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmtScore->execute();
 
         // Redirection vers la page du quiz
-        header("Location: index.php");
+        header("Location: quiz_france.php");
 
         // Fermeture de la connexion à la base de données
         $file_db = null;

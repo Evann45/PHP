@@ -2,45 +2,28 @@
 // Démarrer la session
 session_start();
 
-// Initialiser le score si ce n'est pas déjà fait
-if (!isset($_SESSION['score'])) {
-    $_SESSION['score'] = 0;
-}
+// Réinitialiser la variable de session du score
+$_SESSION['score'] = 0;
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/quiz.css">
-    <title>Quiz sur la France</title>
+    <link rel="stylesheet" type="text/css" href="css/accueil.css">
+    <title>Accueil</title>
 </head>
 <body>
-    <h1>Quiz sur la France</h1>
-    <form action="process.php" method="post">
-        <?php
-        date_default_timezone_set('Europe/Paris');
-        try {
-            $file_db = new PDO('sqlite:contacts.sqlite3');
-            $file_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+    <h1>Bienvenue au Quiz</h1>
 
-            // Récupération des questions sur la France de la base de données
-            $questions = $file_db->query("SELECT * FROM questions WHERE id BETWEEN 1 AND 3")->fetchAll(PDO::FETCH_ASSOC);
+    <form action="quiz_france.php" method="post">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required><br>
 
-            foreach ($questions as $question) {
-                echo '<p>' . $question['question'] . '</p>';
-                echo '<input type="radio" name="question_' . $question['id'] . '" value="1"> Oui ';
-                echo '<input type="radio" name="question_' . $question['id'] . '" value="0"> Non <br>';
-            }
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required><br>
 
-            // Fermeture de la connexion à la base de données
-            $file_db = null;
-
-        } catch (PDOException $ex) {
-            echo $ex->getMessage();
-        }
-        ?>
-        <input type="submit" name="submit" value="Soumettre">
+        <input type="submit" value="Participer au Quiz">
     </form>
 </body>
 </html>

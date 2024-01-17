@@ -47,7 +47,7 @@
     }
     ?>
 
-    <button onclick="window.location.href='accueil.php'">Retour à l'accueil</button>
+    <button onclick="window.location.href='index.php'">Retour à l'accueil</button>
 
 </body>
 </html>
