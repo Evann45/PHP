@@ -20,7 +20,7 @@ try {
     foreach ($_POST as $key => $value) {
         if (strpos($key, 'question_') !== false) {
             $questionId = str_replace('question_', '', $key);
-            if (isset($answers[$questionId]) && $answers[$questionId] == $value && $value == 1) {}
+            if (isset($answers[$questionId]) && $answers[$questionId] == $value) {}
             else{
                 $score++;
             }
