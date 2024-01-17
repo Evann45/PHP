@@ -24,6 +24,10 @@ ul {
   padding: 0;
 }
 
+div {
+  padding-bottom: 5%;
+}
+
 li {
   width: 80%; /* Augmentation de la largeur des résultats */
   background-color: #fff;

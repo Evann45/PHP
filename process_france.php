@@ -1,10 +1,9 @@
 <?php
 session_start();
 
-date_default_timezone_set('Europe/Paris');
 require 'database.php';
-try {
 
+try {
     $answers = array();
 
     // Récupération des réponses de la base de données
@@ -18,8 +17,8 @@ try {
     foreach ($_POST as $key => $value) {
         if (strpos($key, 'question_') !== false) {
             $questionId = str_replace('question_', '', $key);
-            if (isset($answers[$questionId]) && $answers[$questionId] == $value) {}
-            else{
+            if (isset($answers[$questionId]) && $answers[$questionId] == $value) {
+            } else {
                 $score++;
             }
         }

@@ -9,7 +9,6 @@
     <h1>Résultat du Quiz</h1>
 
     <?php
-    date_default_timezone_set('Europe/Paris');
     require 'database.php';
     try {
 

@@ -14,7 +14,6 @@ session_start();
     
     <form action="process_japon.php" method="post">
         <?php
-        date_default_timezone_set('Europe/Paris');
         require 'database.php';
         try {
 

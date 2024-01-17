@@ -1,6 +1,5 @@
 <?php
 session_start(); // Assurez-vous de démarrer la session au début du fichier
-
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +13,6 @@ session_start(); // Assurez-vous de démarrer la session au début du fichier
     <h1>Correction du Quiz</h1>
 
     <?php
-    date_default_timezone_set('Europe/Paris');
     require 'database.php';
     try {
 
@@ -37,7 +35,6 @@ session_start(); // Assurez-vous de démarrer la session au début du fichier
             $stmt2->execute();
             $correctAnswer = $stmt2->fetch(PDO::FETCH_ASSOC);
 
-
             // Vérifie si la réponse de l'utilisateur est correcte
             $isUserAnswerCorrect = isset($_SESSION['question_' . $question['id']]) && $_SESSION['question_' . $question['id']] == $answer['is_correct'];
 
@@ -52,7 +49,7 @@ session_start(); // Assurez-vous de démarrer la session au début du fichier
         }
 
         // Bouton pour consulter tous les scores
-        echo '<a href="consulter_scores.php"><button>Consulter tous les scores</button></a>';
+        echo '<div><a href="consulter_scores.php"><button>Consulter tous les scores</button></a></div>';
 
         // Fermeture de la connexion à la base de données
         $file_db = null;

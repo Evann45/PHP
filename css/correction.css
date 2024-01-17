@@ -21,6 +21,10 @@ p {
     font-size: 125%;
 }
 
+div {
+    padding-bottom: 5%;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
