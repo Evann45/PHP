@@ -25,7 +25,7 @@ if (!isset($_SESSION['score'])) {
             $file_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
             // Récupération des questions sur la France de la base de données
-            $questions = $file_db->query("SELECT * FROM questions WHERE id BETWEEN 1 AND 3")->fetchAll(PDO::FETCH_ASSOC);
+            $questions = $file_db->query("SELECT * FROM questions WHERE id BETWEEN 0 AND 3")->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($questions as $question) {
                 echo '<p>' . $question['question'] . '</p>';
