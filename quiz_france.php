@@ -20,9 +20,8 @@ if (!isset($_SESSION['score'])) {
     <form action="process.php" method="post">
         <?php
         date_default_timezone_set('Europe/Paris');
+        require 'database.php';
         try {
-            $file_db = new PDO('sqlite:contacts.sqlite3');
-            $file_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
             // Récupération des questions sur la France de la base de données
             $questions = $file_db->query("SELECT * FROM questions WHERE id BETWEEN 0 AND 3")->fetchAll(PDO::FETCH_ASSOC);

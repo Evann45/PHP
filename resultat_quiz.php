@@ -10,10 +10,8 @@
 
     <?php
     date_default_timezone_set('Europe/Paris');
-
+    require 'database.php';
     try {
-        $file_db = new PDO('sqlite:contacts.sqlite3');
-        $file_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
         // Récupération du dernier score enregistré dans la base de données
         $result = $file_db->query("SELECT * FROM scores ORDER BY id DESC LIMIT 1")->fetch(PDO::FETCH_ASSOC);

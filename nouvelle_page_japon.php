@@ -15,9 +15,8 @@ session_start();
     <form action="process_japon.php" method="post">
         <?php
         date_default_timezone_set('Europe/Paris');
+        require 'database.php';
         try {
-            $file_db = new PDO('sqlite:contacts.sqlite3');
-            $file_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
             // Récupération des questions sur le Japon de la base de données
             $questions = $file_db->query("SELECT * FROM questions WHERE id BETWEEN 4 AND 6")->fetchAll(PDO::FETCH_ASSOC);

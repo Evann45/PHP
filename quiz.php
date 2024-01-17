@@ -8,9 +8,8 @@ if (!isset($_SESSION['score'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    require 'database.php';
     try {
-        $file_db = new PDO('sqlite:contacts.sqlite3');
-        $file_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
         // Enregistrement du nom, prénom et date dans la table participants
         $nom = $_POST['nom'];
