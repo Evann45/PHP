@@ -54,20 +54,6 @@ $liste_questions = $requete->recup_datas($db::obtenir_connexion())->fetchAll(PDO
                     $score_total += $res_text[1];
                 }
 
-                else if ($question_data['Type_question'] == 'checkbox') {
-                    $liste_choices = $requete->recup_choices_by_id_question($db::obtenir_connexion(), $question_data['ID_question'])->fetchAll(PDO::FETCH_ASSOC);
-                    $question_checkbox = new QuestionCheckbox(
-                        $question_data['Nom_question'],
-                        $question_data['Texte_question'],
-                        $bonne_rep,
-                        $liste_choices,
-                        $question_data['Points_gagnes'] != null ? $question_data['Points_gagnes'] : 0
-                    );
-                    $res_checkbox = $question_checkbox->calcul_points($question_checkbox, $reponses_donnees);
-                    $score += $res_checkbox[0];
-                    $score_total += $res_checkbox[1];
-                }
-
                 else if ($question_data['Type_question'] == 'radio') {
                     $liste_choices = $requete->recup_choices_by_id_question($db::obtenir_connexion(), $question_data['ID_question'])->fetchAll(PDO::FETCH_ASSOC);
                     $question_radio = new QuestionRadio(
@@ -80,6 +66,20 @@ $liste_questions = $requete->recup_datas($db::obtenir_connexion())->fetchAll(PDO
                     $res_radio = $question_radio->calcul_points($question_radio, $reponses_donnees);
                     $score += $res_radio[0];
                     $score_total += $res_radio[1];
+                }
+
+                else if ($question_data['Type_question'] == 'checkbox') {
+                    $liste_choices = $requete->recup_choices_by_id_question($db::obtenir_connexion(), $question_data['ID_question'])->fetchAll(PDO::FETCH_ASSOC);
+                    $question_checkbox = new QuestionCheckbox(
+                        $question_data['Nom_question'],
+                        $question_data['Texte_question'],
+                        $bonne_rep,
+                        $liste_choices,
+                        $question_data['Points_gagnes'] != null ? $question_data['Points_gagnes'] : 0
+                    );
+                    $res_checkbox = $question_checkbox->calcul_points($question_checkbox, $reponses_donnees);
+                    $score += $res_checkbox[0];
+                    $score_total += $res_checkbox[1];
                 }
         
             }
