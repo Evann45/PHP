@@ -1,0 +1,36 @@
+[
+    {
+        "uuid": "8030a37e-947b-11ee-b9d1-0242ac120002",
+        "type": "radio",
+        "label": "Quelle est la capital de la France",
+        "choices": [
+            "Londres",
+            "Orléans",
+            "Paris"
+        ],
+        "correct": "Paris"
+    },
+    {
+        "uuid": "8d7f7078-947b-11ee-b9d1-0242ac120002",
+        "type": "radio",
+        "label": "Qui est le président actuel de la france ?",
+        "choices": [
+            "Ponpidou",
+            "Macron",
+            "Sarkozi"
+        ],
+        "correct": "Macron"
+    },
+    {
+        "uuid": "8d7f7078-947b-11ee-b9d1-0242ac120003",
+        "type": "text",
+        "label": "Traduit feu en anglais",
+        "correct": "fire"
+    },
+    {
+        "uuid": "8d7f7078-947b-11ee-b9d1-0242ac120004",
+        "type": "text",
+        "label": "En quel langage est fait ce quizz ?",
+        "correct": "PHP"
+    }
+]
