@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Form;
 
-require_once __DIR__ . "/InputRenderInterface.php";
+require_once  "./InputRenderInterface.php";
 
 abstract class Input implements Irender {
     protected string $type;

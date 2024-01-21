@@ -2,8 +2,8 @@
 
 namespace QuizzFolder\Type;
 
-require_once __DIR__ . '/InputRadio.php';
-require_once __DIR__ . '/GeneriqueFormElement.php';
+require_once  './InputRadio.php';
+require_once  './GeneriqueFormElement.php';
 
 use QuizzFolder\Question;
 use Classes\Form\Type\InputRadio;

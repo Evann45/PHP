@@ -2,7 +2,7 @@
 
 namespace Classes\Form\Type;
 
-require_once __DIR__ . "/GeneriqueFormElement.php";
+require_once   "./GeneriqueFormElement.php";
 
 use Form\Input;
 

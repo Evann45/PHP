@@ -11,12 +11,12 @@
 
 <?php
 
-require_once __DIR__ . '/ConnexionBD.php';
-require_once __DIR__ . '/Question.php';
-require_once __DIR__ . '/QuestionText.php';
-require_once __DIR__ . '/QuestionRadio.php';
-require_once __DIR__ . '/QuestionCheckbox.php';
-require_once __DIR__ . '/RequeteBDD.php';
+require_once  './ConnexionBD.php';
+require_once  './Question.php';
+require_once  './QuestionText.php';
+require_once  './QuestionRadio.php';
+require_once  './QuestionCheckbox.php';
+require_once  './RequeteBDD.php';
 
 use QuizzFolder\Type\QuestionText;
 use QuizzFolder\Type\QuestionRadio;
