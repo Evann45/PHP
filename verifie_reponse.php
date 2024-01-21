@@ -31,7 +31,7 @@ $liste_questions = $requete->recup_datas($db::obtenir_connexion())->fetchAll(PDO
 </head>
 <body>
 
-<h2>Résultat du Quizz</h2>
+<h2>Résultat du Quizz :  </h2>
 <div class="quiz-result">
     <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
