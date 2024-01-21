@@ -2,8 +2,8 @@
 $nbQuestions = isset($_GET['nb_question']) ? (int)$_GET['nb_question'] : 0;
 $nomQuizz = isset($_GET['nom_quizz']) ? $_GET['nom_quizz'] : '';
 
-require_once __DIR__ . '/ConnexionBD.php';
-require_once __DIR__ . '/RequeteBDD.php';
+require_once  './ConnexionBD.php';
+require_once  './RequeteBDD.php';
 
 use BD\RequeteBDD;
 use BD\ConnexionBD;

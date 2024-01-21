@@ -2,8 +2,8 @@
 
 namespace QuizzFolder\Type;
 
-require_once __DIR__ . '/InputText.php';
-require_once __DIR__ . '/GeneriqueFormElement.php';
+require_once './InputText.php';
+require_once './GeneriqueFormElement.php';
 
 use QuizzFolder\Question;
 use Classes\Form\Type\InputText;
