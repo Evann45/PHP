@@ -22,6 +22,8 @@ h3 {
     color: red;
     text-align: center;
     font-weight: bold;
+    font-size: 200%;
+    margin-top: 5%;
 }
 
 .question-container {
@@ -58,6 +60,8 @@ input[type="submit"] {
     font-size: 16px;
 }
 
-.form_creation_quizz {
+.creation_quizz {
     margin-top: 2em;
+    margin-left: 45%;
+    margin-bottom: 5%;
 }

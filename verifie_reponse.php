@@ -31,8 +31,8 @@ $liste_questions = $requete->recup_datas($db::obtenir_connexion())->fetchAll(PDO
 </head>
 <body>
 
+<h2>Résultat du Quizz</h2>
 <div class="quiz-result">
-    <h2>Résultat du Quizz</h2>
     <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $score = 0;
@@ -83,7 +83,7 @@ $liste_questions = $requete->recup_datas($db::obtenir_connexion())->fetchAll(PDO
                 }
         
             }
-            echo "<h2>Votre score est de $score / $score_total</h2>";
+            echo "<h2>Votre avez $score / $score_total</h2>";
         }
     ?>
      <a href="./index.php"><button type="submit" name="reset_score">Retour</button></a>

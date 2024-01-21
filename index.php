@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizz</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -90,30 +88,21 @@ function construit_responses($liste_questions, $requete, $db, $id_quizz) {
 foreach ($liste_quizz as $index_quizz => $quizz) {
     $liste_questions_a_afficher = construit_responses($liste_questions, $requete, $db, $index_quizz+1);
     ?>
+    <h3><?= $quizz['name_quizz'] ?></h3>
     <form method="post" action="verifie_reponse.php">
-        <h3><?= $quizz['name_quizz'] ?></h3>
         <?php foreach ($liste_questions_a_afficher as $index => $question): ?>
             <div class="question-container">
                 <h4><?= $question->getTexte() ?></h4>
                 <?= $question->rendu($index) ?>
             </div>
         <?php endforeach; ?>
-        <br>
-
-        <br>
         <input type="submit" value="Soumettre vos réponses">
     </form>
     <?php
 }
 
 ?>
-
-<!-- Formulaire de création de quizz -->
-<form method="post" action="creation_quizz.php">
-    <input type="hidden" name="redirection" value="false">
-    <h3>Créer votre propre quizz dès maintenant</h3>
-    <input class="form_creation_quizz" type="submit" value="Créer un quizz">
-</form>
-
+<h3>Créer votre quizz</h3>
+<input class="creation_quizz" type="submit" value="Créer un quizz">
 </body>
 </html>
