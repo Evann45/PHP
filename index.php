@@ -103,6 +103,7 @@ foreach ($liste_quizz as $index_quizz => $quizz) {
 
 ?>
 <h3>Créer votre quizz</h3>
-<input class="creation_quizz" type="submit" value="Créer un quizz">
+<form method="post" action="creation_quizz.php">
+     <input class="form_creation_quizz" type="submit" value="Créer un quizz">
 </body>
 </html>
